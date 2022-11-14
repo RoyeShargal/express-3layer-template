@@ -1,1 +1,1 @@
-# express-3layer-template
+# Node, Express three layer server architecture
