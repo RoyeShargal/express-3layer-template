@@ -2,8 +2,10 @@ import express, { Application } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import mongoose from "mongoose";
+import winston from "winston";
 
 import Controller from "./src/utils/interfaces/controller.interface";
+import { logger } from "./src/config/logger";
 
 class App {
   public express: Application;
@@ -41,7 +43,8 @@ class App {
   public listen(): void {
     this.express.listen(this.port, () => {
       // testScheduledJob.invoke();
-      console.log(`server started at http://localhost:${this.port}`);
+      logger.info(`server started at http://localhost:${this.port}`);
+      // console.log(`server started at http://localhost:${this.port}`);
     });
   }
 }
