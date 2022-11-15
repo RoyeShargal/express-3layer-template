@@ -28,7 +28,8 @@
     "mongoose": "^6.3.0",
     "morgan": "^1.10.0",
     "node-cron": "^3.0.0",
-    "node-schedule": "^2.1.0"
+    "node-schedule": "^2.1.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",

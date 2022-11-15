@@ -1,6 +1,8 @@
 import { Request, Response, Router, NextFunction } from "express";
+
 import Controller from "../../utils/interfaces/controller.interface";
 import UsersService from "./users.service";
+import { logger } from "../../../src/config/logger";
 
 // IUser
 export class UsersController implements Controller {
@@ -21,7 +23,8 @@ export class UsersController implements Controller {
     next: NextFunction
   ): Promise<Response | void> => {
     try {
-      // const { _id } = req.query;
+      const { _id } = req.query;
+      logger.info(`called getUser controller, with userId ${_id}`);
       const response = await this.UsersService.GetUserById("id");
       res.send(response);
     } catch (err) {
