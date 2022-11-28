@@ -1,6 +1,0 @@
-{"level":"info","message":"server started at http://localhost:3000","timestamp":"2022-11-15T20:05:12.698Z"}
-{"level":"info","message":"server started at http://localhost:3000","timestamp":"2022-11-15T20:08:14.415Z"}
-{"level":"info","message":"called getUser controller, with ID 1234","timestamp":"2022-11-15T20:08:18.300Z"}
-{"level":"info","message":"server started at http://localhost:3000","timestamp":"2022-11-15T20:08:54.333Z"}
-{"level":"info","message":"called getUser controller, with userId undefined","timestamp":"2022-11-15T20:08:56.125Z"}
-{"level":"info","message":"called getUser controller, with userId 1234","timestamp":"2022-11-15T20:09:43.641Z"}
