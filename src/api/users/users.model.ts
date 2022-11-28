@@ -3,9 +3,10 @@ import EverythingArticlesI from "./users.interface";
 
 const UsersSchema = new Schema(
   {
-    _id: { type: String },
     email: { type: String },
     name: { type: String },
+    password: { type: String },
+    dateCreated: { type: String },
   },
   { timestamps: true }
 );
