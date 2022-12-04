@@ -4,6 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 import Controller from "./src/utils/interfaces/controller.interface";
+import { logger } from "./src/config/logger";
 
 class App {
   public express: Application;
@@ -13,7 +14,7 @@ class App {
     this.express = express();
     this.port = port;
 
-    // this.initialiseDatabaseConnection();
+    this.initialiseDatabaseConnection();
     this.initialiseMiddleware();
     this.initialiseControllers(controllers);
   }
@@ -30,18 +31,16 @@ class App {
       this.express.use("/api", controller.router);
     });
   }
-  // configure connection
-  // private initialiseDatabaseConnection(): void {
-  //   const { MONGO_USER, MONGO_PASSWORD, MONGO_PATH } = process.env;
-  //   mongoose.connect(
-  //     `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`
-  //   );
-  // }
+
+  // configure DB connection
+  private initialiseDatabaseConnection(): void {
+    const { MONGOOSE_URL } = process.env;
+    mongoose.connect(MONGOOSE_URL);
+  }
 
   public listen(): void {
     this.express.listen(this.port, () => {
-      // testScheduledJob.invoke();
-      console.log(`server started at http://localhost:${this.port}`);
+      logger.info(`server started at http://localhost:${this.port}`);
     });
   }
 }
